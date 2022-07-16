@@ -24,11 +24,18 @@ public class BasePage {
     @FindBy(css = ".bui-avatar.bui-avatar--small")
     private WebElement languageSelector;
 
+    @FindBy(xpath = "//h1")
+    private WebElement titleOfPage;
+
 
 
     public WebElement waitElementIsVisible(WebElement element){
         new WebDriverWait(driver, EXPLICIT_WAIT).until(ExpectedConditions.visibilityOf(element));
         return element;
+    }
+
+    public  String getTitle(){
+        return titleOfPage.getText();
     }
 
 
