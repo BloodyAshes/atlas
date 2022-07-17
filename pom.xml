@@ -34,7 +34,7 @@
                     <suiteXmlFiles>
                         <!--suppress UnresolvedMavenProperty-->
                         <!--<suiteXmlFile>${basedir}${TEST_SUITE}.xml</suiteXmlFile>-->
-                        <!--<suiteXmlFile>${basedir}/src/main/java/xmlSuites/RegistrationTests.xml</suiteXmlFile>-->
+                        <suiteXmlFile>${basedir}/src/test/java/xmlSuites/SearchTest.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemProperties>
                         <property>

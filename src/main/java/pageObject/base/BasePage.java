@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.base.enums.Languages;
 
+import java.lang.reflect.Method;
+
 import static constants.Constant.TimeoutVariables.EXPLICIT_WAIT;
 
 
@@ -28,7 +30,6 @@ public class BasePage {
     private WebElement titleOfPage;
 
 
-
     public WebElement waitElementIsVisible(WebElement element){
         new WebDriverWait(driver, EXPLICIT_WAIT).until(ExpectedConditions.visibilityOf(element));
         return element;
@@ -42,6 +43,6 @@ public class BasePage {
     @Step("Method is used for changed language")
     public void changeLanguage(Languages lang){
         languageSelector.click();
-        driver.findElement(By.xpath(".//div[contains(@lang,'" + lang.getLang() + "')]")).click();
+        waitElementIsVisible(driver.findElement(By.xpath(".//div[contains(@lang,'" + lang.getLang() + "')]"))).click();
     }
 }

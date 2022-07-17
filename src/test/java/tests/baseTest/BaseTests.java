@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import static constants.Constant.CLEAR_COOKIES_AND_STORAGE;
 import static constants.Constant.TimeoutVariables.IMPLICIT_WAIT;
 import static constants.Constant.TimeoutVariables.PAGE_LOAD_WAIT;
+import static counter.CountMethods.countMethods;
 
 public class BaseTests {
 
@@ -36,7 +37,8 @@ public class BaseTests {
     }
 
     @AfterSuite(alwaysRun = true)
-    public void closeDriver(){
+    public void closeDriver() throws ClassNotFoundException {
+      //  countMethods();
         if (driver != null){
             driver.quit();
         }
