@@ -38,7 +38,6 @@ public class BaseTests {
 
     @AfterSuite(alwaysRun = true)
     public void closeDriver() throws ClassNotFoundException {
-      //  countMethods();
         if (driver != null){
             driver.quit();
         }
