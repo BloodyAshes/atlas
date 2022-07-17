@@ -10,7 +10,6 @@ import org.openqa.selenium.support.FindBys;
 import pageObject.base.BasePage;
 import pageObject.base.enums.Months;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -42,6 +41,14 @@ public class MainPage extends BasePage {
     })
     private List<WebElement> selectedDate;
 
+    @FindBys({
+    @FindBy(css = ".ia_link")
+    })
+    private List<WebElement> loverRegions;
+
+    @FindBy(css = ".bui-tab.bui-tab--rounded.bui-spacer--large")
+    private WebElement regionBlock;
+
 
 
 
@@ -54,7 +61,7 @@ public class MainPage extends BasePage {
 
     @Description(value = "Beta version!!!")
     @Step("Method is used for choosing date")
-    public MainPage chooseDate(Months months, int year, int day, int period){
+    public MainPage chooseDate(Months months, int year, String day, int period){
         waitElementIsVisible(calendar).click();
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
         while (!currentMonthAndYear.getText().contains(String.valueOf(year))) {
@@ -64,7 +71,7 @@ public class MainPage extends BasePage {
                 waitElementIsVisible(nextMonth).click();
             }
                 driver.findElement(By.xpath(".//td[contains(@data-date, '" + year + "-" + months.getMonth() + "-" + day + "')]")).click();
-                driver.findElement(By.xpath(".//td[contains(@data-date, '" + year + "-" + months.getMonth() + "-" + (day + period) + "')]")).click();
+                driver.findElement(By.xpath(".//td[contains(@data-date, '" + year + "-" + months.getMonth() + "-" + (Integer.parseInt(day) + period) + "')]")).click();
         return this;
     }
 
@@ -72,5 +79,18 @@ public class MainPage extends BasePage {
     public SearchResultPage clickOnSearchButton(){
         searchButton.click();
         return new  SearchResultPage(this.driver);
+    }
+
+    @Step("The method is used for navigate to city page")
+    public RegionPage navigateToRegionPage(String region){
+        for (WebElement item : loverRegions){
+            if (!item.getText().contains(region)){
+              continue;
+            }else {
+                item.click();
+                return new RegionPage(driver);
+            }
+        }
+        return null;
     }
 }

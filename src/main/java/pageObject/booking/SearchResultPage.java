@@ -1,17 +1,21 @@
 package pageObject.booking;
 
 import io.qameta.allure.Step;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
-import pageObject.base.BasePage;
+
 import pageObject.base.enums.Months;
 
+
 import java.util.ArrayList;
+
 import java.util.List;
 
-public class SearchResultPage extends BasePage {
+
+public class SearchResultPage extends MainPage {
     public SearchResultPage(WebDriver driver) {
         super(driver);
     }
@@ -83,6 +87,7 @@ public class SearchResultPage extends BasePage {
             }
         return res;
         }
+
     }
 
 

@@ -1,13 +1,13 @@
 package pageObject.base.enums;
 
 public enum Months {
-    JANUARY(1, "JANUARY"),
-    FEBRUARY(2, "FEBRUARY"),
-    MARCH(3, "MARCH"),
-    APRIL(4, "APRIL"),
-    MAY(5, "MAY"),
-    JUNE(6, "JUNE"),
-    JULY(7, "JULY"),
+    JANUARY(01, "JANUARY"),
+    FEBRUARY(02, "FEBRUARY"),
+    MARCH(03, "MARCH"),
+    APRIL(04, "APRIL"),
+    MAY(05, "MAY"),
+    JUNE(06, "JUNE"),
+    JULY(07, "JULY"),
     AUGUST(8, "AUGUST"),
     SEPTEMBER(9, "SEPTEMBER"),
     OCTOBER(10, "OCTOBER"),
